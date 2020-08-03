@@ -1,0 +1,142 @@
+<!-- <!doctype html>
+<html>
+<head>
+	<title>Country->State->District</title>
+</head>
+<body>
+Country:
+<select id="country">
+</select>
+State:
+<select id="state">
+</select>
+District:
+<select id="district">
+</select>
+
+<script src="jquery-2.2.4.min.js"></script>
+<script src="custom.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE.html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <style>
+    #wrapper {
+    width: 30%;
+    margin: 50px auto;
+    padding: 50px;
+    background-color: #D7FBFF;
+  }
+  form {
+    margin: 30px auto;
+  }
+  .textInput {
+    border: none;
+    height: 28px;
+    margin: 2px;
+    border: 1px solid #6B7363;
+    font-size: 1.2em;
+    padding: 5px;
+    width: 95%;
+  }
+  .textInput:focus {
+    outline: none;
+  }
+  .btn {
+    width: 55%;
+    border: none;
+    margin-top: 5px;
+    color: white;
+    background-color: #3b5998;
+    border-radius: 5px;
+    padding: 12px;
+  }
+  .IDQ{
+    width: 55%
+  }
+  .CNT{
+    width:55%
+  }
+
+    </style>
+
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+    <form class="form"  method="post" name="myForm" onsubmit="return validateForm()">
+     <div id="wrapper">
+          	<div id="username_div">
+<input type="text" size=40 name="username" placeholder="Enter your firstname"pattern="[a-zA-Z]+" >
+                <div id="username_error"></div>
+            <div id="lastname_div">
+<input type="text" size=40 name="lastname" placeholder="enter Your lastname"pattern="[a-zA-Z]+" >
+  <div id="lastname_error"></div>
+<div id="number_div">
+<input type="number"  name="ID" placeholder="Enter Your ID" class="IDQ">
+</div>
+<div id="country_div">
+<select class="CNT" id="country" name="country1" placeholder="Enter where are you from">
+
+        </select>
+        </div>
+          <button class="btn" type="submit">Submit</button>
+</div>
+    </form>
+		<script src="jquery-2.2.4.min.js"></script>
+		<script src="custom.js"></script>
+    <script>
+
+       function validateForm() {
+    var x = document.forms["myForm"]["username"].value;
+       var y = document.forms["myForm"]["lastname"].value;
+       var z= document.forms["myForm"]["country1"].value;
+       var t=document.forms["myForm"]["ID"].value;
+
+    if (x == "") {
+      alert("Name must be filled out");
+      return false;
+    }
+    if (!isNaN(x)) {
+      alert("Please Enter Only Characters");
+      return false;
+
+    }
+     if (y == "") {
+       alert("lastname must be filled out");
+       return false;
+     }
+     if (!isNaN(y)) {
+alert("Please Enter Only Characters");
+return false;
+     }
+     if (z=="GE" && t.length<11 || t.length>11) {
+       alert("ID must been 11");
+
+     }
+
+}
+document.querySelector('.form').addEventListener('submit',(event) => {
+  if (event.target.country.value=="Georgia" && event.target.ID.value.length<11 ||event.target.ID.value.length>11) {
+    alert("ID must been 11");
+    event.preventDefault();
+
+  }else {
+
+
+ console.log(event.target.username.value);
+   console.log(event.target.lastname.value);
+   console.log(event.target.ID.value);
+   console.log(event.target.country.value);
+ event.preventDefault();
+
+}
+
+});
+    </script>
+  </body>
+</html>
